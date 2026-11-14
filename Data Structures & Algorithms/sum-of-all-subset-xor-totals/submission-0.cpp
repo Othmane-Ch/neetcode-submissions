@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int dfs(const vector<int>& nums, int i, int total)
+    {
+        if(i == nums.size()) return total;
+        return dfs(nums, i + 1, total) + dfs(nums, i + 1, total ^ nums[i]);
+    }
+    int subsetXORSum(vector<int>& nums) {
+        return dfs(nums, 0, 0);
+    }
+};
